@@ -2,19 +2,30 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hello, class...</h1>
-    <p>Be prepared to be called on at any moment!</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export default class IndexPage extends React.Component{
+  state = {
+    username: ``,
+    password:``,
+  }
+  render(){
+    return(
+      <Layout>
+      <SEO title="HOME" />
+      <h1>Welcome to Call On Me!</h1>
+      <h1>Log in here:</h1>
+      <h5>Log in goes here.</h5>
+      <h2>Not registered?</h2>
+      <Link to="/signup/">Sign up here!</Link>
+      <br />
+      <Link to="/profile/">See profile page.</Link>
+      <Link to="/class/">See class page.</Link>
+    </Layout>
+    )
+  }
+}
 
-export default IndexPage
+
+
+
