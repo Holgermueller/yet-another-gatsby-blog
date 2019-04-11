@@ -1,8 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Router } from "@reach/router"
+// import { Link } from "gatsby"
+// import { Router } from "@reach/router"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { login } from "../utils/auth"
 
 export default class ProfilePage extends React.Component {
   constructor(props) {
@@ -66,12 +67,12 @@ export default class ProfilePage extends React.Component {
               onClick={this.handleClassNameSubmit}
             />
           </form>
-        ) : (null)}
+        ) : null}
 
         <h2>Pick your class:</h2>
         <p>Class list goes here.</p>
-        <Link to="/">Go back to the homepage</Link>
-        <Link to="/class/">Go to class page.</Link>
+        {/* <Link to="/">Go back to the homepage</Link>
+        <Link to="/class/">Go to class page.</Link> */}
       </Layout>
     )
   }

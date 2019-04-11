@@ -21,8 +21,8 @@ export default class ClassPage extends React.Component {
         </button>
         <hr />
         <h4>Class roster goes here</h4>
-        <Link to="/">Go back to the homepage</Link>
-        <Link to="/profile/">See profile page.</Link>
+        {/* <Link to="/">Go back to the homepage</Link>
+        <Link to="/profile/">See profile page.</Link> */}
       </Layout>
     )
   }
