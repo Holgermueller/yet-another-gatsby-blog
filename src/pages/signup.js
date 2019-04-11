@@ -56,6 +56,7 @@ export default class SignUpPage extends React.Component {
             placeholder="Enter first name"
             value={this.state.firstName}
             onChange={this.handleChange}
+            required
           />
           <input
             type="text"
@@ -63,6 +64,7 @@ export default class SignUpPage extends React.Component {
             placeholder="Enter last name"
             value={this.state.lastName}
             onChange={this.handleChange}
+            required
           />
           <input
             type="text"
@@ -70,6 +72,7 @@ export default class SignUpPage extends React.Component {
             placeholder="Enter username"
             value={this.state.userName}
             onChange={this.handleChange}
+            required
           />
           <input
             type="email"
@@ -77,6 +80,7 @@ export default class SignUpPage extends React.Component {
             placeholder="Enter email"
             value={this.state.email}
             onChange={this.handleChange}
+            required
           />
           <input
             type="password"
@@ -84,6 +88,7 @@ export default class SignUpPage extends React.Component {
             placeholder="Enter password"
             value={this.state.password}
             onChange={this.handleChange}
+            required
           />
           <input
             type="password"
@@ -91,6 +96,7 @@ export default class SignUpPage extends React.Component {
             placeholder="Confirm password"
             value={this.state.confirmPassword}
             onChange={this.handleChange}
+            required
           />
           <input
             type="submit"

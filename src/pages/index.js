@@ -49,6 +49,7 @@ export default class IndexPage extends React.Component {
             placeholder="Username"
             value={this.state.username}
             onChange={this.handleChange}
+            required
           />
           <input
             type="password"
@@ -56,6 +57,7 @@ export default class IndexPage extends React.Component {
             placeholder="Password"
             value={this.state.password}
             onChange={this.handleChange}
+            required
           />
           <input
             type="submit"

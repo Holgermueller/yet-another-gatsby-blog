@@ -8,10 +8,20 @@ export default class ProfilePage extends React.Component {
     super(props)
     this.state = {
       nameOfClass: ``,
+      showForm: false,
     }
 
+    this.handleDropdown = this.handleDropdown.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleClassNameSubmit = this.handleClassNameSubmit.bind(this)
+  }
+
+  handleDropdown = e => {
+    e.preventDefault()
+    console.log("click")
+    this.setState({
+      showForm: true,
+    })
   }
 
   handleChange = e => {
@@ -34,21 +44,29 @@ export default class ProfilePage extends React.Component {
       <Layout>
         <SEO title="Teacher-profile" />
         <h1>Hello, Instructor.</h1>
-        <h2>Add a class:</h2>
-        <form method="post">
-          <input
-            type="text"
-            name="nameOfClass"
-            placeholder="Enter Class Name"
-            value={this.state.nameOfClass}
-            onChange={this.handleChange}
-          />
-          <input
-            type="submit"
-            value="SUBMIT"
-            onClick={this.handleClassNameSubmit}
-          />
-        </form>
+        <h2>
+          <button name="formDropdown" onClick={this.handleDropdown}>
+            Add a Class...
+          </button>
+        </h2>
+        {this.state.showForm ? (
+          <form method="post">
+            <input
+              type="text"
+              name="nameOfClass"
+              placeholder="Enter Class Name"
+              value={this.state.nameOfClass}
+              onChange={this.handleChange}
+              required
+            />
+            <input
+              type="submit"
+              value="SUBMIT"
+              onClick={this.handleClassNameSubmit}
+            />
+          </form>
+        ) : (null)}
+
         <h2>Pick your class:</h2>
         <p>Class list goes here.</p>
         <Link to="/">Go back to the homepage</Link>
