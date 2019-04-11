@@ -1,17 +1,59 @@
-import React from "react";
-import {Link} from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import React from "react"
+import { Link } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-const ProfilePage = () => (
-  <Layout>
-    <SEO title="Teacher-profile"></SEO>
-    <h1>Hello, Instructor.</h1>
-    <h2>Pick your class.</h2>
-    <p>Class list goes here.</p>
-    <Link to="/">Go back to the homepage</Link>
-    <Link to="/class/">Go to class page.</Link>
-  </Layout>
-)
+export default class ProfilePage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      nameOfClass: ``,
+    }
 
-  export default ProfilePage
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClassNameSubmit = this.handleClassNameSubmit.bind(this)
+  }
+
+  handleChange = e => {
+    const target = e.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  handleClassNameSubmit = e => {
+    e.preventDefault()
+    console.log(this.state)
+  }
+
+  render() {
+    return (
+      <Layout>
+        <SEO title="Teacher-profile" />
+        <h1>Hello, Instructor.</h1>
+        <h2>Add a class:</h2>
+        <form method="post">
+          <input
+            type="text"
+            name="nameOfClass"
+            placeholder="Enter Class Name"
+            value={this.state.nameOfClass}
+            onChange={this.handleChange}
+          />
+          <input
+            type="submit"
+            value="SUBMIT"
+            onClick={this.handleClassNameSubmit}
+          />
+        </form>
+        <h2>Pick your class:</h2>
+        <p>Class list goes here.</p>
+        <Link to="/">Go back to the homepage</Link>
+        <Link to="/class/">Go to class page.</Link>
+      </Layout>
+    )
+  }
+}
