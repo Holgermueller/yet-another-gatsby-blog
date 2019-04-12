@@ -1,7 +1,4 @@
 import auth0 from "auth0-js"
-// import dotenv from "dotenv"
-
-// dotenv.config()
 
 export const isBrowser = typeof window !== "undefined"
 
@@ -15,9 +12,13 @@ const auth = isBrowser
     })
   : {}
 
-export const login = () => {
-  if (!isBrowser) {
-    return
+  export const login = () => {
+    if(!isBrowser) {
+      return;
+    }
+    auth.authorize()
   }
-  auth.authorize()
-}
+
+  export const handleAuthentication = () => {
+
+  }
