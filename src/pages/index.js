@@ -4,16 +4,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default class IndexPage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: ``,
-      password: ``,
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+  state = {
+    username: ``,
+    password: ``,
   }
+
+  handleChange = this.handleChange.bind(this)
+  handleLoginSubmit = this.handleLoginSubmit.bind(this)
 
   handleChange = e => {
     const target = e.target
