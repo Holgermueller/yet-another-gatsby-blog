@@ -68,8 +68,7 @@ export default class IndexPage extends React.Component {
         <h2>Not registered?</h2>
         <Link to="/signup/">Sign up here!</Link>
         <br />
-        <Link to="/profile/">See profile page.</Link>
-        <Link to="/class/">See class page.</Link>
+        
       </Layout>
     )
   }
