@@ -73,4 +73,4 @@ yarn-error.log
 ./config
 
 #Firebase to protect api key and other info
-src/service/firebase.js
+src/services/firebase.js
