@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SignInForm from "../components/SignIn"
 
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -42,33 +43,10 @@ export default class IndexPage extends React.Component {
         <h1>Welcome to Call On Me!</h1>
         <h1>Log in here:</h1>
         <hr />
-        <form method="post">
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            type="submit"
-            value="Log In"
-            onClick={this.handleLoginSubmit}
-          />
-        </form>
+        <SignInForm />
         <h2>Not registered?</h2>
         <Link to="/signup/">Sign up here!</Link>
         <br />
-        
       </Layout>
     )
   }
