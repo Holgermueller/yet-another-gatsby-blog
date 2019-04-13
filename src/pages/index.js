@@ -6,18 +6,17 @@ import SignInForm from "../components/SignIn"
 import SignUpForm from "../components/SignUp"
 
 export default class IndexPage extends React.Component {
-  
-
   render() {
     return (
       <Layout>
         <SEO title="HOME" />
         <h1>Welcome to Call On Me!</h1>
         <h1>Log in here:</h1>
-        <hr />
         <SignInForm />
+        <br />
+        <hr />
         <h2>Not registered?</h2>
-      <SignUpForm/>
+        <SignUpForm />
         <br />
       </Layout>
     )
