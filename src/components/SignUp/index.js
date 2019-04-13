@@ -1,5 +1,103 @@
 import React, { Component } from "react"
-import {Link, navigate} from 'gatsby'
+import { Link, navigate } from "gatsby"
 
-import * as ROUTES from "../../constants/routes"
-import * as ROLES from '../../constants/roles'
+export default class SignUpForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      firstName: ``,
+      lastName: ``,
+      userName: ``,
+      email: ``,
+      password: ``,
+      confirmPassword: ``,
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this)
+  }
+
+  handleChange = e => {
+    const target = e.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  handleRegistrationSubmit = e => {
+    e.preventDefault()
+    console.log(this.state)
+
+    this.setState({
+      firstName: ``,
+      lastName: ``,
+      userName: ``,
+      email: ``,
+      password: ``,
+      confirmPassword: ``,
+    })
+  }
+
+  render() {
+    return (
+      <form method="post">
+        <input
+          type="text"
+          name="firstName"
+          placeholder="Enter first name"
+          value={this.state.firstName}
+          onChange={this.handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Enter last name"
+          value={this.state.lastName}
+          onChange={this.handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="userName"
+          placeholder="Enter username"
+          value={this.state.userName}
+          onChange={this.handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          value={this.state.email}
+          onChange={this.handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          value={this.state.password}
+          onChange={this.handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm password"
+          value={this.state.confirmPassword}
+          onChange={this.handleChange}
+          required
+        />
+        <input
+          type="submit"
+          value="Register"
+          onClick={this.handleRegistrationSubmit}
+        />
+      </form>
+    )
+  }
+}

@@ -1,9 +1,6 @@
 import React from "react"
-// import { Link } from "gatsby"
-// import { Router } from "@reach/router"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-//import { login } from "../utils/auth"
 
 export default class ProfilePage extends React.Component {
   constructor(props) {

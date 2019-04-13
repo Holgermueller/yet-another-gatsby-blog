@@ -1,46 +1,43 @@
 import React, { Component } from "react"
 import { navigate } from "gatsby"
 
-import { withFirebase } from "../Firebase"
-import * as ROUTES from "../../constants/routes"
+// import { withFirebase } from "../Firebase"
+// import * as ROUTES from "../../constants/routes"
 
-const Initial_State = {
-  username: "",
-  password: "",
-  error: null,
-}
 
-class SignInForm extends Component {
+export default class SignInForm extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      username: ``,
+      password: ``,
+    }
 
-    this.state = { ...Initial_State }
-  }
-
-  handleLoginSubmit = e => {
-    e.preventDefault()
-    const { username, password } = this.state
-
-    this.props.firebase
-      .doSignInWithEmailAndPassword(username, password)
-      .then(() => {
-        this.setState({ ...Initial_State })
-        navigate(ROUTES.HOME)
-      })
-      .catch(error => {
-        this.setState({ error })
-      })
+    this.handleChange = this.handleChange.bind(this)
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    const target = e.target
+    const value = target.value
+    const name = target.name
+
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  handleLoginSubmit(e) {
+    e.preventDefault()
+    console.log(this.state)
+
+    this.setState({
+      username: ``,
+      password: ``,
+    })
   }
 
   render() {
-    const { username, password, error } = this.state
-
-    const isInvalid = password === "" || username === ""
-
     return (
       <form method="post">
         <input
@@ -69,5 +66,3 @@ class SignInForm extends Component {
     )
   }
 }
-
-export default SignInForm

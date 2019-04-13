@@ -3,38 +3,10 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SignInForm from "../components/SignIn"
+import SignUpForm from "../components/SignUp"
 
 export default class IndexPage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: ``,
-      password: ``,
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
-  }
-
-  handleChange = e => {
-    const target = e.target
-    const value = target.value
-    const name = target.name
-
-    this.setState({
-      [name]: value,
-    })
-  }
-
-  handleLoginSubmit(e) {
-    e.preventDefault()
-    console.log(this.state)
-
-    this.setState({
-      username: ``,
-      password: ``,
-    })
-  }
+  
 
   render() {
     return (
@@ -45,7 +17,7 @@ export default class IndexPage extends React.Component {
         <hr />
         <SignInForm />
         <h2>Not registered?</h2>
-        <Link to="/signup/">Sign up here!</Link>
+      <SignUpForm/>
         <br />
       </Layout>
     )
