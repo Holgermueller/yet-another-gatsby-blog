@@ -1,12 +1,14 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import SignOutButton from "../components/SignOut"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
       marginBottom: `1.45rem`,
+      display: `flex`
     }}
   >
     <div
@@ -26,10 +28,9 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
-
-        
       </h1>
     </div>
+    <SignOutButton />
   </header>
 )
 

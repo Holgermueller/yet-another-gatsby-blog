@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { navigate } from "gatsby"
 import Modal from "react-modal"
 // import { withFirebase } from "../Firebase"

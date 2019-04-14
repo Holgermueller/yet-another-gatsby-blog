@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import NavBar from "./navbar"
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -35,7 +34,6 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          <NavBar />
           <main>{children}</main>
           <footer>
             © {new Date().getFullYear()} Holger Mueller, Built with
