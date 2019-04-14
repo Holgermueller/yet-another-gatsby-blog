@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import Modal from "react-modal"
+import * as ROUTES from "../../constants/routes"
 
 const customStyles = {
   content: {
@@ -13,7 +14,7 @@ const customStyles = {
   },
 }
 
-Modal.setAppElement('body')
+Modal.setAppElement("body")
 
 export default class SignUpForm extends React.Component {
   constructor(props) {
@@ -57,6 +58,7 @@ export default class SignUpForm extends React.Component {
       password: ``,
       confirmPassword: ``,
     })
+    navigate(ROUTES.PROFILE)
   }
 
   openModal() {
@@ -77,13 +79,13 @@ export default class SignUpForm extends React.Component {
       <div>
         <button onClick={this.openModal}>REGISTER</button>
         <Modal
-        isOpen={this.state.modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        style={customStyles}
-        contentLabel="Example modal"
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example modal"
         >
-        <h2>Register</h2>
+          <h2>Register</h2>
           <form method="post">
             <input
               type="text"

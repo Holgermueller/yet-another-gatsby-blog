@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import { navigate } from "gatsby"
 import Modal from "react-modal"
-
 // import { withFirebase } from "../Firebase"
-// import * as ROUTES from "../../constants/routes"
+import * as ROUTES from "../../constants/routes"
 
 const customStyles = {
   content: {
@@ -16,7 +15,7 @@ const customStyles = {
   },
 }
 
-Modal.setAppElement('body')
+Modal.setAppElement("body")
 
 export default class SignInForm extends React.Component {
   constructor(props) {
@@ -52,6 +51,7 @@ export default class SignInForm extends React.Component {
       username: ``,
       password: ``,
     })
+    navigate(ROUTES.PROFILE)
   }
 
   openModal() {
@@ -78,7 +78,7 @@ export default class SignInForm extends React.Component {
           style={customStyles}
           contentLabel="Example modal"
         >
-        <h2>Sign In</h2>
+          <h2>Sign In</h2>
           <form method="post">
             <input
               type="text"
