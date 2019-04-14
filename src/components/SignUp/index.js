@@ -13,6 +13,8 @@ const customStyles = {
   },
 }
 
+Modal.setAppElement('body')
+
 export default class SignUpForm extends React.Component {
   constructor(props) {
     super(props)

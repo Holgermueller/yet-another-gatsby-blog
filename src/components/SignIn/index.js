@@ -16,6 +16,8 @@ const customStyles = {
   },
 }
 
+Modal.setAppElement('body')
+
 export default class SignInForm extends React.Component {
   constructor(props) {
     super(props)
