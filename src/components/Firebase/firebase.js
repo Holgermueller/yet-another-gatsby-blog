@@ -12,12 +12,58 @@ const config = {
 }
 
 class Firebase {
-  constructor() {
-    firebase.initializeApp(config)
-    this.store = firebase.firestore
-    this.auth = firebase.auth
+  constructor(app) {
+    app.initializeApp(config)
+    //this.store = app.firestore()
+    this.auth = app.auth()
+    this.db = app.database()
   }
-  
+
+  doCreateUserWithEmailAndPassword = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password)
+
+  doSignInWithEmailAndPassword = (email, password) =>
+    this.auth.signInWithEmailAndPassword(email, password)
+
+  doSignOut = () => this.auth.signOut()
+
+  onAuthUserListener = (next, fallback) =>
+  this.auth.onAuthStateChanged(authUser => {
+    if(authUser) {
+      this.user(authUser.uid)
+      .once('value')
+      .then(snapshot => {
+        const dbUser = snapshot.val()
+
+        authUser = {
+          uid: authUser.uid,
+          email: authUser.email,
+          emailVerified: authUser.emailVerified,
+          providerData: authUser.providerData,
+          ...dbUser,
+        };
+        next(authUser)
+      });
+    } else {
+      fallback()
+    }
+  })
+  user = uid => this.db.ref(`users/${uid}`)
+
+  users = () => this.db.ref('users')
+
+  message = uid => this.db.ref(`messages/${uid}`)
+
+  messages = () => this.db.ref('messages')
 }
 
-export default new Firebase()
+let firebase
+
+function getFirebase(app, auth, database) {
+  if (!firebase) {
+    firebase = new Firebase(app, auth, database)
+  }
+  return firebase
+}
+
+export default getFirebase

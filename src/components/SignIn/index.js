@@ -21,7 +21,7 @@ export default class SignInForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: ``,
+      email: ``,
       password: ``,
       modalIsOpen: false,
     }
@@ -48,7 +48,7 @@ export default class SignInForm extends React.Component {
     console.log(this.state)
 
     this.setState({
-      username: ``,
+      email: ``,
       password: ``,
     })
     navigate(ROUTES.PROFILE)
@@ -82,9 +82,9 @@ export default class SignInForm extends React.Component {
           <form method="post">
             <input
               type="text"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
+              name="email"
+              placeholder="Email"
+              value={this.state.email}
               onChange={this.handleChange}
               required
             />
