@@ -11,58 +11,22 @@ const config = {
   messagingSenderId: process.env.REACT_APP_MESSAING_SENDER_ID,
 }
 
-class Firebase {
-  constructor(app) {
-    app.initializeApp(config)
-    //this.store = app.firestore()
-    this.auth = app.auth()
-    this.db = app.database()
+let firebaseCache
+
+export const getUiConfig = firebase => ({
+  signInFlow: "popup",
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+  ],
+})
+
+const getFirebase = firebase => {
+  if (firebaseCache) {
+    return firebaseCache
   }
-
-  doCreateUserWithEmailAndPassword = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password)
-
-  doSignInWithEmailAndPassword = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password)
-
-  doSignOut = () => this.auth.signOut()
-
-  onAuthUserListener = (next, fallback) =>
-  this.auth.onAuthStateChanged(authUser => {
-    if(authUser) {
-      this.user(authUser.uid)
-      .once('value')
-      .then(snapshot => {
-        const dbUser = snapshot.val()
-
-        authUser = {
-          uid: authUser.uid,
-          email: authUser.email,
-          emailVerified: authUser.emailVerified,
-          providerData: authUser.providerData,
-          ...dbUser,
-        };
-        next(authUser)
-      });
-    } else {
-      fallback()
-    }
-  })
-  user = uid => this.db.ref(`users/${uid}`)
-
-  users = () => this.db.ref('users')
-
-  message = uid => this.db.ref(`messages/${uid}`)
-
-  messages = () => this.db.ref('messages')
-}
-
-let firebase
-
-function getFirebase(app, auth, database) {
-  if (!firebase) {
-    firebase = new Firebase(app, auth, database)
-  }
+  firebase.initializeApp(config)
+  firebaseCache = firebase
   return firebase
 }
 

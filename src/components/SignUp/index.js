@@ -2,7 +2,6 @@ import React from "react"
 import { navigate } from "gatsby"
 import Modal from "react-modal"
 import * as ROUTES from "../../constants/routes"
-import { withFirebase } from "../Firebase"
 
 const customStyles = {
   content: {
@@ -50,30 +49,7 @@ class SignUpForm extends React.Component {
   handleRegistrationSubmit = e => {
     e.preventDefault()
     console.log(this.state)
-
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, password)
-      .then(authUser => {
-        return this.props.firebase.user(authUser.user.id).set({
-          username,
-          email,
-        })
-      })
-      .then(() => {
-        return this.props.firebase.doSendEmailVerification()
-      })
-      .then(() => {
-        this.setState({
-          firstName: ``,
-          lastName: ``,
-          userName: ``,
-          email: ``,
-          password: ``,
-          confirmPassword: ``,
-        })
-        navigate(ROUTES.PROFILE)
-      })
-      .catch(error => console.log(error))
+    navigate(ROUTES.PROFILE)
   }
 
   openModal() {
@@ -163,4 +139,4 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default withFirebase(SignUpForm)
+export default SignUpForm

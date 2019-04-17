@@ -1,8 +1,10 @@
 import React from "react"
 import { navigate } from "gatsby"
 import Modal from "react-modal"
-// import { withFirebase } from "../Firebase"
 import * as ROUTES from "../../constants/routes"
+import { StyledFirebaseAuth } from "react-firebaseui"
+import { getUiConfig } from "../Firebase/firebase"
+import { withFirebase } from "../Firebase/context"
 
 const customStyles = {
   content: {
@@ -17,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement("body")
 
-export default class SignInForm extends React.Component {
+class SignInForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -102,9 +104,16 @@ export default class SignInForm extends React.Component {
               onClick={this.handleLoginSubmit}
               disabled={this.isInvalid}
             />
+
+            {/* <StyledFirebaseAuth
+              uiConfig={getUiConfig(firebase)}
+              firebaseAuth={firebase.auth()}
+            /> */}
           </form>
         </Modal>
       </div>
     )
   }
 }
+
+export default SignInForm

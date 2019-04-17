@@ -11,7 +11,6 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
-import getFirebase, {FirebaseContext} from "./Firebase"
 
 const Layout = ({ children }) => (
   <StaticQuery
