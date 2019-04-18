@@ -5,7 +5,8 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
+import React, { Component, Fragment } from "react"
+import getFirebase, { FirebaseContext } from "./Firebase"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 

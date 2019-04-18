@@ -2,9 +2,6 @@ import React from "react"
 import { navigate } from "gatsby"
 import Modal from "react-modal"
 import * as ROUTES from "../../constants/routes"
-import { StyledFirebaseAuth } from "react-firebaseui"
-import { getUiConfig } from "../Firebase/firebase"
-import { withFirebase } from "../Firebase/context"
 
 const customStyles = {
   content: {
@@ -105,10 +102,6 @@ class SignInForm extends React.Component {
               disabled={this.isInvalid}
             />
 
-            {/* <StyledFirebaseAuth
-              uiConfig={getUiConfig(firebase)}
-              firebaseAuth={firebase.auth()}
-            /> */}
           </form>
         </Modal>
       </div>
