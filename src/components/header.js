@@ -7,12 +7,12 @@ const Header = ({ siteTitle }) => (
     style={{
       background: `rebeccapurple`,
       marginBottom: `1.45rem`,
-      display: `flex`
+      display: `flex`,
     }}
   >
     <div
       style={{
-        margin: `0 auto`,
+        // margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
       }}
@@ -28,6 +28,35 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+    </div>
+    <div>
+    <Link
+        to="/blog"
+        style={{
+          color: `white`,
+          textDecoration: `none`,
+        }}
+      >
+        BLOG
+      </Link>
+      <Link
+        to="/about"
+        style={{
+          color: `white`,
+          textDecoration: `none`,
+        }}
+      >
+        ABOUT
+      </Link>
+      <Link
+        to="/contact"
+        style={{
+          color: `white`,
+          textDecoration: `none`,
+        }}
+      >
+        CONTACT
+      </Link>
     </div>
   </header>
 )
