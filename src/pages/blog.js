@@ -7,7 +7,8 @@ export default class BlogPage extends React.Component {
     return (
       <Layout>
         <SEO title="BLOG" />
-        <h1>This is the BLOG page</h1>
+        <h2>Story Archive</h2>
+        <h2>Blog Archive</h2>
       </Layout>
     )
   }

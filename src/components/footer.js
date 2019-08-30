@@ -12,13 +12,14 @@ export default class BlogPage extends React.Component {
           bottom: 0,
           right: 0,
           zIndex: 15,
-          fontSize: `.85em`
+          fontSize: `.85em`,
+          fontFamily: `Arial, Helvetica, sans-serif`,
         }}
       >
         <div
           style={{
             color: `white`,
-            float: `right`
+            marginLeft: 8,
           }}
         >
           © {new Date().getFullYear()} Holger Mueller, Built with

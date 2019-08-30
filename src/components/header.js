@@ -1,10 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Typography from "@material-ui/core/Typography"
 
 const style = {
   color: `white`,
   textDecoration: `none`,
+  fontFamily: `Impact, Charcoal, sans-serif`
 }
 
 const Header = ({ siteTitle }) => (
@@ -30,13 +32,13 @@ const Header = ({ siteTitle }) => (
     </div>
     <div style={{ margin: `auto` }}>
       <Link to="/blog" style={style}>
-        BLOG
+        <Typography variant="button">WRITING</Typography>
       </Link>
       <Link to="/about" style={style}>
-        ABOUT
+        <Typography variant="button">ABOUT</Typography>
       </Link>
       <Link to="/contact" style={style}>
-        CONTACT
+        <Typography variant="button">CONTACT</Typography>
       </Link>
     </div>
   </header>
