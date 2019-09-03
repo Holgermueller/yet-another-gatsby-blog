@@ -7,7 +7,7 @@ const AboutPage = ({ data }) => (
     <SEO title="ABOUT" />
     <h1>This is the about page</h1>
     <p>
-      {data.allMarkdownRemark.edges.node.frontmatter}
+      {data.allMarkdownRemark.edges.node.frontmatter.title}
     </p>
   </Layout>
 )
